@@ -6,3 +6,5 @@ export enum URLS {
   list = 'list.php',
   filter = 'filter.php'
 }
+
+export const LIST = 'list';

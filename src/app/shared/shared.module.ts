@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { InlineSVGModule } from 'ng-inline-svg';
+
 import { HeaderComponent } from './components/header/header.component';
 
 
@@ -9,7 +12,9 @@ import { HeaderComponent } from './components/header/header.component';
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    InlineSVGModule.forRoot()
   ],
   exports: [
     HeaderComponent

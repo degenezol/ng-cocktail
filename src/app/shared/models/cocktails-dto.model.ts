@@ -4,6 +4,7 @@ export interface Cocktails<T> {
 
 export interface Category {
   strCategory: string;
+  checked?: boolean;
 }
 
 export interface Cocktail {

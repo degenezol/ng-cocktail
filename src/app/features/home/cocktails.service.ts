@@ -23,11 +23,12 @@ export class CocktailsService {
   };
 
   categoriesBehaviorSubject = new BehaviorSubject<Category[]>(null);
-  cocktailsBehaviorSubject = new BehaviorSubject<Cocktail[]>(null);
+  cocktailsBehaviorSubject = new BehaviorSubject<Observable<Cocktails<Cocktail>>[]>(null);
+  checkedCategoriesBehaviorSubject = new BehaviorSubject<string[]>(null);
 
   constructor(private httpService: HttpService) { }
 
-  getFiltersList(): Observable<Cocktails<Category>> {
+  getCategoriesList(): Observable<Cocktails<Category>> {
     return this.httpService.get(URLS.list, this.filterListOptoins)
       .pipe(take(1));
   }
@@ -40,9 +41,18 @@ export class CocktailsService {
 
   getCocktailsByCategories(categories: Category[]): Observable<Cocktails<Cocktail>>[] {
     const cocktailsObservables: Observable<Cocktails<Cocktail>>[] = [];
+    const checkedCategories: string[] = [];
+
     categories.forEach((category: Category) => {
-      cocktailsObservables.push(this.getCocktailsByCategory(category.strCategory));
+      if (category.checked || !category.hasOwnProperty('checked')) {
+        checkedCategories.push(category.strCategory);
+        cocktailsObservables.push(this.getCocktailsByCategory(category.strCategory));
+      }
     });
+
+    this.cocktailsBehaviorSubject.next(cocktailsObservables);
+    this.checkedCategoriesBehaviorSubject.next(checkedCategories);
+
     return cocktailsObservables;
   }
 }

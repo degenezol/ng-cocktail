@@ -8,3 +8,7 @@ export enum URLS {
 }
 
 export const LIST = 'list';
+
+export enum BUTTONS {
+  apply = 'APPLY'
+}

@@ -1,1 +1,14 @@
-<p>filter works!</p>
+<aside>
+  <div *ngFor="let category of categories; let i = index" class="filter">
+    <input
+      class="filter__checkbox"
+      type="checkbox"
+      checked
+      (change)="checkboxHandler($event, i)"
+    >
+    <span class="filter__name">{{category.strCategory}}</span>
+  </div>
+  <button class="applyButton" (click)="applyFilters()">{{buttonName}}</button>
+</aside>
+
+

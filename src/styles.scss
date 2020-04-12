@@ -4,6 +4,14 @@
   margin: 0;
 }
 
+button {
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 @font-face {
   font-family: 'Roboto Regular';
   src: url(assets/fonts/roboto/Roboto-Regular.ttf) format('opentype');

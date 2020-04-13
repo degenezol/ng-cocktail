@@ -1,0 +1,15 @@
+:host {
+  width: 150px;
+}
+
+.cocktail {
+  &-image {
+    width: 100%;
+  }
+
+  &-title {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+}

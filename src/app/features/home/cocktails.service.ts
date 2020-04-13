@@ -22,9 +22,9 @@ export class CocktailsService {
     }
   };
 
-  categoriesBehaviorSubject = new BehaviorSubject<Category[]>(null);
-  cocktailsBehaviorSubject = new BehaviorSubject<Observable<Cocktails<Cocktail>>[]>(null);
-  checkedCategoriesBehaviorSubject = new BehaviorSubject<string[]>(null);
+  categoriesBehaviorSubject = new BehaviorSubject<Category[]>([]);
+  cocktailsBehaviorSubject = new BehaviorSubject<Observable<Cocktails<Cocktail>>[]>([]);
+  checkedCategoriesBehaviorSubject = new BehaviorSubject<string[]>([]);
 
   constructor(private httpService: HttpService) { }
 
@@ -50,8 +50,8 @@ export class CocktailsService {
       }
     });
 
-    this.cocktailsBehaviorSubject.next(cocktailsObservables);
     this.checkedCategoriesBehaviorSubject.next(checkedCategories);
+    this.cocktailsBehaviorSubject.next(cocktailsObservables);
 
     return cocktailsObservables;
   }

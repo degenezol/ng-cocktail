@@ -1,1 +1,10 @@
-<p>content works!</p>
+<div *ngFor="let category of categories; let i = index" class="category">
+  <h2 class="category__header">{{category}}</h2>
+  <div class="category__cocktails">
+    <app-cocktail-item
+      *ngFor="let cocktail of cocktails[i] ? cocktails[i].drinks : null"
+      [cocktail]="cocktail"
+    ></app-cocktail-item>
+  </div>
+</div>
+

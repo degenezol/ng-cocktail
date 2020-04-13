@@ -29,6 +29,7 @@ export class FilterComponent implements OnInit, OnDestroy {
       this.cocktailsService.categoriesBehaviorSubject
         .subscribe((categories: Category[]) => {
           this.categories = categories;
+          this.cocktailsService.getCocktailsByCategories(this.categories);
         })
     );
   }

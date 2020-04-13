@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { FilterComponent } from './filter/filter.component';
 import { ContentComponent } from './content/content.component';
 import { CocktailsService } from './cocktails.service';
+import { CocktailItemComponent } from './content/cocktail-item/cocktail-item.component';
 
 
 
@@ -12,7 +13,8 @@ import { CocktailsService } from './cocktails.service';
   declarations: [
     HomeComponent,
     FilterComponent,
-    ContentComponent
+    ContentComponent,
+    CocktailItemComponent
   ],
   imports: [
     CommonModule

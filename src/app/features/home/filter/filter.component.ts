@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CocktailsService } from '../cocktails.service';
-import { Category, Cocktail, Cocktails } from 'src/app/shared/models/cocktails-dto.model';
-import { Subscription, Observable } from 'rxjs';
+import { Category, Cocktails } from 'src/app/shared/models/cocktails-dto.model';
+import { Subscription } from 'rxjs';
 import { BUTTONS } from 'src/app/app.config';
 
 @Component({
